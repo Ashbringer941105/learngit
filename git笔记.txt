@@ -1,0 +1,53 @@
+git add 文件名//添加需要上传的文件
+git add 文件名//添加需要上传的文件
+。。。
+git commit -m "上传文件说明"//上传已经add的文件
+
+git status //查看当前状态
+git diff //查看库里面内容和当前内容的差别
+
+git log //查看修改记录
+ 在git中HEAD表示当前版本，HEAD^表示上一个版本，HEAD^^表示上一个版本的上一个版本。。。HEAD~3表示再之前一个版本
+git reset --hard HEAD^//回到某个版本
+也可以将HEAD^替换我commit的版本号
+cat 文件名//查看文件中的内容
+git reflog//查看操作的每一条命令
+git diff HEAD -- 文件名//查看工作区和版本库里面的差别
+
+
+
+
+git checkout -- 文件名 //让工作区的文件回到最后一次add或者commit的时候的版本，，丢弃工作区的修改
+git reset HEAD 文件名 //撤销掉缓存区的对于规定文件的修改。
+//如果已经上交到了版本库中，则使用git reset --hard HEAD^回到指定版本
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，
+       第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
+
+
+删除文件
+rm 文件名//在工作区中删除文件
+git rm 文件名
+git commit -m "remove 文件名"//确定要删除文件
+
+
+git checkout -- 文件名//这个操作是用最后一次add或者commit提交的版本替换工作区里面的版本，
+		      //即将文件恢复到最后一次add或者commit的状态
+
+
+
+
+git push origin master//将最新的修改推送至github
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+
+
+//下载数据
+git clone git@github.com:Ashbringer941105/项目名称.git
