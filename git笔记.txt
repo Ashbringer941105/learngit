@@ -69,3 +69,7 @@ git checkout master
 git merge dev
 //É¾³ıdev·ÖÖ§
 git branch -d dev
+
+
+
+²âÊÔ²Ù×÷01
