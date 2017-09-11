@@ -66,10 +66,7 @@ git branch//查看当前分支，当前分支的前面会有一个*
 git checkout master
 
 
-//将dev分支上的工作成果合并到master上
-git merge dev
-//删除dev分支
-git branch -d dev
+
 
 
 
@@ -88,3 +85,5 @@ git push origin master
 //删除dev分支，如果使用强制删除，则使用-D
 git branch -d dev
 
+
+//解决冲突（分支上）
