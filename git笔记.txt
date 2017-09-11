@@ -51,3 +51,12 @@ git push origin master//将最新的修改推送至github
 
 //下载数据
 git clone git@github.com:Ashbringer941105/项目名称.git
+
+
+
+
+//创建新的分支
+git checkout -b dev//dev是分支的名字
+//git checkout 加上-b的意思是创建并且切换，
+//相当于git branch dev 创建分支
+        git checkout dev转换到分支
