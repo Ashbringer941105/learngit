@@ -60,3 +60,6 @@ git checkout -b dev//dev是分支的名字
 //git checkout 加上-b的意思是创建并且切换，
 //相当于git branch dev 创建分支
         git checkout dev转换到分支
+
+git branch//查看当前分支，当前分支的前面会有一个*
+//对分支上的文件进行修改之后可以切换回master分支
