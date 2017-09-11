@@ -65,6 +65,7 @@ git branch//查看当前分支，当前分支的前面会有一个*
 //对分支上的文件进行修改之后可以切换回master分支
 git checkout master
 
+
 //将dev分支上的工作成果合并到master上
 git merge dev
 //删除dev分支
@@ -72,5 +73,18 @@ git branch -d dev
 
 
 
-测试操作01
-1111111111111111111111111111111111111111111111111
+
+//创建并切换到新的分支
+git checkout -b dev
+//在新的分支上进行操作之后进行add，commit操作
+git add 文件名
+git commit -m "备注"
+//切换到master分支
+git checkout master
+//合并dev分支
+git merge dev 
+//上传到master
+git push origin master
+//删除dev分支，如果使用强制删除，则使用-D
+git branch -d dev
+
