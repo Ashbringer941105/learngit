@@ -88,3 +88,6 @@ git branch -d dev
 
 //解决冲突（分支上）
 需要线下修改，然后在进行add commit push操作
+
+//多人合作的时候推荐是用nofast模式，下文中的dev为在master中需要合并过来的分支的名字
+git merge --no--fast -m "备注" dev
