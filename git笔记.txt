@@ -1,145 +1,152 @@
-//�Ҹ����ʵ�λ�ô����汾��
-mkdir �ļ�������
-cd �ļ�������
+常用命令：
+1、创建本地git库     git init 
+2、关联远程库       git remote add origin git@github.com:Ashbringer941105/repo名称.git
+3、第一次push或者pull的时候报错的。	git branch --set-upstream master origin/master
+4、一次上传多个文件 		git add .
+
+---------------------------------------------------------------------------------------------------------------------------------
+//找个合适的位置创建版本库
+mkdir 文件夹名称
+cd 文件夹名称
 git init
-//��github�ϴ�������Ӧ��repo֮����������ļ��е���Ӧ��repo
-git remote add origin git@github.com:Ashbringer941105/repo����.git
+//在github上创建了相应的repo之后关联本地文件夹到相应的repo
+git remote add origin git@github.com:Ashbringer941105/repo名称.git
 
 
 
-git add �ļ���//������Ҫ�ϴ����ļ�
-git add �ļ���//������Ҫ�ϴ����ļ�
-������
-git commit -m "�ϴ��ļ�˵��"//�ϴ��Ѿ�add���ļ�
+git add 文件名//添加需要上传的文件
+git add 文件名//添加需要上传的文件
+。。。
+git commit -m "上传文件说明"//上传已经add的文件
 
-git status //�鿴��ǰ״̬
-git diff //�鿴���������ݺ͵�ǰ���ݵĲ��
+git status //查看当前状态
+git diff //查看库里面内容和当前内容的差别
 
-git log //�鿴�޸ļ�¼
- ��git��HEAD��ʾ��ǰ�汾��HEAD^��ʾ��һ���汾��HEAD^^��ʾ��һ���汾����һ���汾������HEAD~3��ʾ��֮ǰһ���汾
-git reset --hard HEAD^//�ص�ĳ���汾
-Ҳ���Խ�HEAD^�滻��commit�İ汾��
-cat �ļ���//�鿴�ļ��е�����
-git reflog//�鿴������ÿһ������
-git diff HEAD -- �ļ���//�鿴�������Ͱ汾������Ĳ��
-
-
-git checkout -- �ļ��� //�ù��������ļ��ص����һ��add����commit��ʱ��İ汾�����������������޸�
-git reset HEAD �ļ��� //�������������Ķ��ڹ涨�ļ����޸ġ�
-//����Ѿ��Ͻ����˰汾���У���ʹ��git reset --hard HEAD^�ص�ָ���汾
-����1����������˹�����ĳ���ļ������ݣ���ֱ�Ӷ������������޸�ʱ��������git checkout -- file��
-
-����2�����㲻�������˹�����ĳ���ļ������ݣ������ӵ����ݴ���ʱ���붪���޸ģ���������
-       ��һ��������git reset HEAD file���ͻص��˳���1���ڶ���������1������
-
-����3���Ѿ��ύ�˲����ʵ��޸ĵ��汾��ʱ����Ҫ���������ύ���ο��汾����һ�ڣ�����ǰ����û�����͵�Զ�̿�
+git log //查看修改记录
+ 在git中HEAD表示当前版本，HEAD^表示上一个版本，HEAD^^表示上一个版本的上一个版本。。。HEAD~3表示再之前一个版本
+git reset --hard HEAD^//回到某个版本
+也可以将HEAD^替换我commit的版本号
+cat 文件名//查看文件中的内容
+git reflog//查看操作的每一条命令
+git diff HEAD -- 文件名//查看工作区和版本库里面的差别
 
 
-ɾ���ļ�
-rm �ļ���//�ڹ�������ɾ���ļ�
-git rm �ļ���
-git commit -m "remove �ļ���"//ȷ��Ҫɾ���ļ�
+git checkout -- 文件名 //让工作区的文件回到最后一次add或者commit的时候的版本，，丢弃工作区的修改
+git reset HEAD 文件名 //撤销掉缓存区的对于规定文件的修改。
+//如果已经上交到了版本库中，则使用git reset --hard HEAD^回到指定版本
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，
+       第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
 
 
-git checkout -- �ļ���//��������������һ��add����commit�ύ�İ汾�滻����������İ汾��
-		      //�����ļ��ָ������һ��add����commit��״̬
+删除文件
+rm 文件名//在工作区中删除文件
+git rm 文件名
+git commit -m "remove 文件名"//确定要删除文件
 
 
-git push origin master//�����µ��޸�������github
-Ҫ����һ��Զ�̿⣬ʹ������git remote add origin git@server-name:path/repo-name.git��
-
-������ʹ������git push -u origin master��һ������master��֧���������ݣ�
-
-�˺�ÿ�α����ύ��ֻҪ�б�Ҫ���Ϳ���ʹ������git push origin master���������޸ģ�
+git checkout -- 文件名//这个操作是用最后一次add或者commit提交的版本替换工作区里面的版本，
+		      //即将文件恢复到最后一次add或者commit的状态
 
 
+git push origin master//将最新的修改推送至github
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
 
-//��������
-git clone git@github.com:Ashbringer941105/��Ŀ����.git
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 
 
-//�����µķ�֧
-git checkout -b dev//dev�Ƿ�֧������
-//git checkout ����-b����˼�Ǵ��������л���
-//�൱��git branch dev ������֧
-        git checkout devת������֧
 
-git branch//�鿴��ǰ��֧����ǰ��֧��ǰ�����һ��*
-//�Է�֧�ϵ��ļ������޸�֮������л���master��֧
+//下载数据
+git clone git@github.com:Ashbringer941105/项目名称.git
+
+
+//创建新的分支
+git checkout -b dev//dev是分支的名字
+//git checkout 加上-b的意思是创建并且切换，
+//相当于git branch dev 创建分支
+        git checkout dev转换到分支
+
+git branch//查看当前分支，当前分支的前面会有一个*
+//对分支上的文件进行修改之后可以切换回master分支
 git checkout master
 
 
-//�������л����µķ�֧
+//创建并切换到新的分支
 git checkout -b dev
-//���µķ�֧�Ͻ��в���֮�����add��commit����
-git add �ļ���
-git commit -m "��ע"
-//�л���master��֧
+//在新的分支上进行操作之后进行add，commit操作
+git add 文件名
+git commit -m "备注"
+//切换到master分支
 git checkout master
-//�ϲ�dev��֧
+//合并dev分支
 git merge dev 
-//�ϴ���master
+//上传到master
 git push origin master
-//ɾ��dev��֧�����ʹ��ǿ��ɾ������ʹ��-D
+//删除dev分支，如果使用强制删除，则使用-D
 git branch -d dev
 
 
-//�����ͻ����֧�ϣ�
-��Ҫ�����޸ģ�Ȼ���ڽ���add commit push����
+//解决冲突（分支上）
+需要线下修改，然后在进行add commit push操作
 
-//���˺�����ʱ���Ƽ�����nofastģʽ�������е�devΪ��master����Ҫ�ϲ������ķ�֧������
-git merge --no--fast -m "��ע" dev
+//多人合作的时候推荐是用nofast模式，下文中的dev为在master中需要合并过来的分支的名字
+git merge --no--fast -m "备注" dev
 
-//Git���ṩ��һ��stash���ܣ����԰ѵ�ǰ�����ֳ������ء����������Ժ�ָ��ֳ����������
+//Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
 git stash
 
 
 
 
-��ˣ�����Э���Ĺ���ģʽͨ����������
+因此，多人协作的工作模式通常是这样：
 
-���ȣ�������ͼ��git push origin branch-name�����Լ����޸ģ�
+首先，可以试图用git push origin branch-name推送自己的修改；
 
-�������ʧ�ܣ�����ΪԶ�̷�֧����ı��ظ��£���Ҫ����git pull��ͼ�ϲ���
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
 
-����ϲ��г�ͻ��������ͻ�����ڱ����ύ��
+如果合并有冲突，则解决冲突，并在本地提交；
 
-û�г�ͻ���߽������ͻ������git push origin branch-name���;��ܳɹ���
+没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
 
-���git pull��ʾ��no tracking information������˵�����ط�֧��Զ�̷�֧�����ӹ�ϵû�д�����������git branch --set-upstream branch-name origin/branch-name��
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
 
-����Ƕ���Э���Ĺ���ģʽ��һ����Ϥ�ˣ��ͷǳ��򵥡�
-
-
-
-�鿴Զ�̿���Ϣ��ʹ��git remote -v��
-
-�����½��ķ�֧��������͵�Զ�̣��������˾��ǲ��ɼ��ģ�
-
-�ӱ������ͷ�֧��ʹ��git push origin branch-name���������ʧ�ܣ�����git pullץȡԶ�̵����ύ��
-
-�ڱ��ش�����Զ�̷�֧��Ӧ�ķ�֧��ʹ��git checkout -b branch-name origin/branch-name�����غ�Զ�̷�֧���������һ�£�
-
-�������ط�֧��Զ�̷�֧�Ĺ�����ʹ��git branch --set-upstream branch-name origin/branch-name��
-
-��Զ��ץȡ��֧��ʹ��git pull������г�ͻ��Ҫ�ȴ�����ͻ��
+这就是多人协作的工作模式，一旦熟悉了，就非常简单。
 
 
-//��ǩ������
-//���ӱ�ǩ���л�����Ҫ���ӱ�ǩ�ķ�֧��
-git tag ��ǩ��
-//�������Ĳ������б�ǩ�����ӣ���Ҫʹ��git log �鿴��־֮����ÿ����־��commit��������ǽ������ӱ�ǩ
-git tag ��ǩ�� commit���
-//�鿴��ǩ��Я���İ汾��Ϣ
-git show ��ǩ��
-//�����Դ�������˵���ı�ǩ����-aָ����ǩ����-mָ��˵�����֣�
-git tag -a ��ǩ�汾�� -m "˵������" commit����
-//ɾ����ǩ
-git tag -d ��ǩ��
-//���ڱ��ش�õı�ǩ�ϴ���github
-git push origin ��ǩ��
-//����һ����������û���ϴ��ı�ǩ��
+
+查看远程库信息，使用git remote -v；
+
+本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+
+
+//标签管理。
+//添加标签。切换到需要添加标签的分支上
+git tag 标签名
+//对以往的操作进行标签的添加，需要使用git log 查看日志之后用每个日志的commit编码对他们进行添加标签
+git tag 标签名 commit编号
+//查看标签所携带的版本信息
+git show 标签名
+//还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：
+git tag -a 标签版本名 -m "说明文字" commit编码
+//删除标签
+git tag -d 标签名
+//将在本地打好的标签上传到github
+git push origin 标签名
+//或者一次推送所有没有上传的标签名
 git push origin --tags
-//����Ѿ���Զ�̱�ǩ������Ҫ�ȴӱ���ɾ����Ȼ����push��Զ��
-git tag -d ��ǩ��
-git push origin :refs/tags/��ǩ��
+//如果已经是远程标签，则需要先从本地删除，然后再push到远程
+git tag -d 标签名
+git push origin :refs/tags/标签名
