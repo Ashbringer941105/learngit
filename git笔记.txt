@@ -3,6 +3,8 @@
 2、关联远程库       git remote add origin git@github.com:Ashbringer941105/repo名称.git
 3、第一次push或者pull的时候报错的。	git branch --set-upstream master origin/master
 4、一次上传多个文件 		git add .
+5、生成sshkey    ssh-keygen -t rsa -C "704140897@qq.com"
+	然后把生成的  id_rsa.pub的内容粘贴到github上
 
 ---------------------------------------------------------------------------------------------------------------------------------
 //找个合适的位置创建版本库
